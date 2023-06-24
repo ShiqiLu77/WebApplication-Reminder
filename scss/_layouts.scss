@@ -1,0 +1,46 @@
+body{
+    margin: 0px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 130px minmax(0, 1fr); // divide to 2 columns, left 200px, right 1fr
+    height: 100vh; 
+    
+    > .toolbar{
+        background-color: #e2f2da;
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+
+    }
+    > .grid-reminders{
+        background-color: white ;
+        font-family: Comic Sans MS, cursive;
+        display: grid;
+        grid-template-rows: 110px minmax(0, 1fr);
+        padding:10px 50px;
+
+        h1 {
+            font-size: 56px;
+            font-weight: lighter;
+            margin: 0px;
+            padding: 10px 40px;
+        }
+
+        .reminder-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+
+        }
+    }
+}
+
+.button {
+    color: black;
+    text-decoration: none;
+    font-size: 100px;
+    font-weight: bolder;
+    height: 100px;
+}

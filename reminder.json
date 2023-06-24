@@ -1,0 +1,68 @@
+[
+    {
+      "id": 1,
+      "name": "Buy groceries",
+      "description": "Buy milk, eggs, and bread",
+      "time": "2023-06-20T09:30"
+    },
+    {
+      "id": 2,
+      "name": "Pay bills",
+      "description": "Pay electricity and water bills",
+      "time": "2023-06-21T18:00"
+    },
+    {
+      "id": 3,
+      "name": "Meeting with client",
+      "description": "Discuss project requirements with the client",
+      "time": "2023-06-22T14:00"
+    },
+    {
+      "id": 4,
+      "name": "Exercise",
+      "description": "Go for a jog or hit the gym",
+      "time": "2023-06-23T07:00"
+    },
+    {
+      "id": 5,
+      "name": "Dentist appointment",
+      "description": "Visit the dentist for a check-up",
+      "time": "2023-06-24T10:30"
+    },
+    {
+      "id": 6,
+      "name": "Submit report",
+      "description": "Submit the quarterly report to the manager",
+      "time": "2023-06-25T15:00"
+    },
+    {
+      "id": 7,
+      "name": "Call mom",
+      "description": "Give mom a call and catch up",
+      "time": "2023-06-26T12:00"
+    },
+    {
+      "id": 8,
+      "name": "Book flight tickets",
+      "description": "Find and book flight tickets for vacation",
+      "time": "2023-06-27T16:30"
+    },
+    {
+      "id": 9,
+      "name": "Renew library books",
+      "description": "Renew borrowed books at the library",
+      "time": "2023-06-28T11:00"
+    },
+    {
+      "id": 10,
+      "name": "Buy birthday gift",
+      "description": "Purchase a gift for a friend's birthday",
+      "time": "2023-06-29T09:00"
+    },
+    {
+      "id": 11,
+      "name": "Call plumber",
+      "description": "Arrange a plumber to fix the leaking faucet",
+      "time": "2023-06-30T13:30"
+    }
+  ]  

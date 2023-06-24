@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="dist/main.css">
+    <title>Shiqi's Reminder</title>
+</head>
+
+<body>
+    <div class="grid-container">
+        <div class="toolbar">
+            <a href="#" class="button"> + </a>
+        </div>
+        
+        <!-- Reminders -->
+        <div class="grid-reminders">
+            <h1>Reminders</h1>
+            <div class="reminder-container"></div>
+        </div>
+    </div>
+
+    <!-- Create new reminder -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Create a new Reminder</h2>
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br>
+            <label for="description">Description:</label><br>
+            <input type="text" id="description" name="description"><br>
+            <label for="time">Time:</label><br>
+            <input type="datetime-local" id="time" name="time">
+            <button id="submitReminder">Submit</button>
+        </div>
+    </div>
+
+    <!-- Edit existed reminder -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <label for="edit-name">Name:</label><br>
+            <input type="text" id="edit-name" name="edit-name"><br>
+            <label for="edit-description">Description:</label><br>
+            <input type="text" id="edit-description" name="edit-description"><br>
+            <label for="edit-time">Time:</label><br>
+            <input type="datetime-local" id="edit-time" name="edit-time"><br>
+            <button id="saveBtn">Save</button>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>                         
