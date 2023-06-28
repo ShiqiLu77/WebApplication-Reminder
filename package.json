@@ -9,11 +9,11 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/neu-mis-info-6150-summer-2023/assignment-6-ShiqiLu77/issues"
+    "url": "https://github.com/ShiqiLu77/assignment-6-ShiqiLu77/issues"
   },
-  "homepage": "https://github.com/neu-mis-info-6150-summer-2023/assignment-6-ShiqiLu77#readme",
+  "homepage": "https://github.com/ShiqiLu77/assignment-6-ShiqiLu77#readme",
   "dependencies": {
     "dec": "^0.0.1",
-    "sass": "^1.63.4"
+    "sass": "^1.63.6"
   }
 }
