@@ -1,0 +1,14 @@
+# Ignore log
+*.log
+
+# Ignore node_modules directory
+node_modules
+
+# Ignore dist directory
+dist
+
+# macOS
+.DS_Store
+
+# Visual Studio Code
+.vscode/
