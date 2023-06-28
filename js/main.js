@@ -4,7 +4,6 @@ fetch('reminder.json')
         const container = document.querySelector('.reminder-container');
 
         reminders.forEach(reminder => {
-
             // create a new reminder div
             const reminderDiv = document.createElement('div');
             reminderDiv.className = 'reminder';
@@ -14,13 +13,43 @@ fetch('reminder.json')
                 openEditModal(reminderDiv);
             });
 
-            // create and set reminder-title div
+            // Create title container
+            const titleContainer = document.createElement('div');
+            titleContainer.className = 'title-container';
+
+            // Create and set reminder-title div
             const titleDiv = document.createElement('div');
             const title = document.createElement('p');
             titleDiv.className = 'reminder-title';
             title.textContent = reminder.name;
             titleDiv.appendChild(title);
-            reminderDiv.appendChild(titleDiv);
+            titleContainer.appendChild(titleDiv); // Append titleDiv to titleContainer instead of reminderDiv
+
+            // Create complete button
+            const completeButton = document.createElement('button');
+            completeButton.className = 'complete-button';
+            completeButton.innerHTML = '✓';
+
+            completeButton.addEventListener('click', (event) => {
+                event.stopPropagation(); // Stop the event from bubbling up
+
+                if (!completeButton.classList.contains('completed')) {
+                    completeButton.classList.add('completed');
+                    titleDiv.classList.add('completed-task');
+                    descriptionDiv.classList.add('completed-task');
+                    dateDiv.classList.add('completed-task');
+                } else {
+                    completeButton.classList.remove('completed');
+                    titleDiv.classList.remove('completed-task');
+                    descriptionDiv.classList.remove('completed-task');
+                    dateDiv.classList.remove('completed-task');
+                }
+            });
+
+            titleContainer.appendChild(completeButton); // Append completeButton to titleContainer
+
+            // Append titleContainer to reminderDiv
+            reminderDiv.appendChild(titleContainer);
 
             // create and set  reminder-description div
             const descriptionDiv = document.createElement('div');
@@ -28,7 +57,7 @@ fetch('reminder.json')
             descriptionDiv.className = 'reminder-description';
             description.textContent = reminder.description;
             descriptionDiv.appendChild(description);
-            reminderDiv.appendChild(descriptionDiv);
+            reminderDiv.appendChild(descriptionDiv);            
 
             // create and set  reminder-date div
             const dateDiv = document.createElement('div');
@@ -42,23 +71,6 @@ fetch('reminder.json')
             
             dateDiv.appendChild(date);
             reminderDiv.appendChild(dateDiv);
-
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.className = 'reminder-complete';
-            checkbox.addEventListener('click', (event) => {
-                event.stopPropagation(); // stopPropagation
-            }, true); 
-
-            checkbox.addEventListener('change', (event) => {
-                if (checkbox.checked) {
-                    reminderDiv.style.backgroundColor = 'green';
-                } else {
-                    reminderDiv.style.backgroundColor = getRandomColor();
-                }
-            });
-            reminderDiv.appendChild(checkbox);
-
 
 
             // append reminder div to the container
@@ -121,6 +133,7 @@ submitButton.onclick = function (event) {
         description: newReminderDescription,
         time: newReminderTime // Keep as string
     };
+    
 
     // Create the new reminder HTML
     const reminderDiv = document.createElement('div');
@@ -131,12 +144,44 @@ submitButton.onclick = function (event) {
         openEditModal(reminderDiv); // Open the edit modal
     });
 
+
+
+    // Create title container
+    const titleContainer = document.createElement('div');
+    titleContainer.className = 'title-container';
+
     const titleDiv = document.createElement('div');
     const title = document.createElement('p');
     titleDiv.className = 'reminder-title';
     title.textContent = newReminder.name;
     titleDiv.appendChild(title);
-    reminderDiv.appendChild(titleDiv);
+    titleContainer.appendChild(titleDiv);
+
+    // Create complete button
+    const completeButton = document.createElement('button');
+    completeButton.className = 'complete-button';
+    completeButton.innerHTML = '✓';
+
+    completeButton.addEventListener('click', (event) => {
+        event.stopPropagation(); // Stop the event from bubbling up
+
+        if (!completeButton.classList.contains('completed')) {
+            completeButton.classList.add('completed');
+            titleDiv.classList.add('completed-task');
+            descriptionDiv.classList.add('completed-task');
+            dateDiv.classList.add('completed-task');
+        } else {
+            completeButton.classList.remove('completed');
+            titleDiv.classList.remove('completed-task');
+            descriptionDiv.classList.remove('completed-task');
+            dateDiv.classList.remove('completed-task');
+        }
+    });
+
+    titleContainer.appendChild(completeButton); // Append completeButton to titleContainer
+    reminderDiv.appendChild(titleContainer);
+
+
 
     const descriptionDiv = document.createElement('div');
     const description = document.createElement('p');
@@ -156,33 +201,6 @@ submitButton.onclick = function (event) {
     dateDiv.appendChild(date);
     reminderDiv.appendChild(dateDiv);
 
-    const checkboxWrapper = document.createElement('div');
-    checkboxWrapper.className = 'custom-checkbox';
-
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
-    checkbox.className = 'real-checkbox';
-
-    const customCheckbox = document.createElement('span');
-    customCheckbox.className = 'fake-checkbox';
-
-    checkboxWrapper.appendChild(checkbox);
-    checkboxWrapper.appendChild(customCheckbox);
-
-    checkbox.addEventListener('change', (event) => {
-        if (checkbox.checked) {
-            reminderDiv.style.backgroundColor = 'green';
-            customCheckbox.classList.add('checked');
-        } else {
-            reminderDiv.style.backgroundColor = getRandomColor();
-            customCheckbox.classList.remove('checked');
-        }
-    });
-
-    reminderDiv.appendChild(checkboxWrapper);
-
-
-
 
     // Add to the container
     const container = document.querySelector('.reminder-container');
@@ -191,8 +209,6 @@ submitButton.onclick = function (event) {
     // Close the modal
     modal.style.display = "none";
 }
-
-
 
 
 
