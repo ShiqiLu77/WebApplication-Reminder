@@ -67,12 +67,16 @@ fetch('reminder.json')
     })
     .catch(error => console.error('Error:', error));
 
-function getRandomColor() {
-    const r = Math.floor(Math.random() * 256); // Random between 0-255
-    const g = Math.floor(Math.random() * 256); // Random between 0-255
-    const b = Math.floor(Math.random() * 256); // Random between 0-255
-    return `rgb(${r},${g},${b})`; // Collect all to a rgb color string
-}
+const getRandomColor = (function() {
+    const colors = ["rgb(238,216,216)", "rgb(216,222,238)", "rgb(238,229,216)","rgb(228,216,238)", "rgb(223,238,216)","rgb(216,238,238)"];
+    let index = 0;
+        
+    return function() {
+        const color = colors[index];
+        index = (index + 1) % colors.length; // Move to the next color, and wrap around when reaching the end
+        return color;
+    };
+})();
 
 
 // Get the modal
@@ -152,21 +156,33 @@ submitButton.onclick = function (event) {
     dateDiv.appendChild(date);
     reminderDiv.appendChild(dateDiv);
 
+    const checkboxWrapper = document.createElement('div');
+    checkboxWrapper.className = 'custom-checkbox';
+
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
-    checkbox.className = 'reminder-complete';
-    checkbox.addEventListener('click', (event) => {
-        event.stopPropagation();
-    }, true);
+    checkbox.className = 'real-checkbox';
+
+    const customCheckbox = document.createElement('span');
+    customCheckbox.className = 'fake-checkbox';
+
+    checkboxWrapper.appendChild(checkbox);
+    checkboxWrapper.appendChild(customCheckbox);
 
     checkbox.addEventListener('change', (event) => {
         if (checkbox.checked) {
             reminderDiv.style.backgroundColor = 'green';
+            customCheckbox.classList.add('checked');
         } else {
             reminderDiv.style.backgroundColor = getRandomColor();
+            customCheckbox.classList.remove('checked');
         }
     });
-    reminderDiv.appendChild(checkbox);
+
+    reminderDiv.appendChild(checkboxWrapper);
+
+
+
 
     // Add to the container
     const container = document.querySelector('.reminder-container');
