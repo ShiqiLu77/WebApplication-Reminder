@@ -18,6 +18,3 @@ The following functions has been implemented
 3. Open the index.html file in a web browser.
 4. You should now be able to use the JS Reminders app and interact with the reminders.
 
-
-
-test
