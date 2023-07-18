@@ -1,19 +1,27 @@
 {
-  "name": "assignment-6-shiqilu77",
+  "name": "assignment-9-shiqilu77",
   "version": "1.0.0",
-  "description": "**Dynamic Web Project - Reminder Application- Assignment 6**",
+  "description": "**Dynamic Web Project - Reminder Application- Assignment 9**",
   "main": "index.js",
   "scripts": {
-    "sass": "npx sass scss/main.scss dist/main.css"
+    "sass": "npx sass scss/main.scss dist/main.css",
+    "start": "node server.js"
   },
+  "type": "module",
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ShiqiLu77/assignment-6-ShiqiLu77/issues"
+    "url": "https://github.com/ShiqiLu77/assignment-9-ShiqiLu77/issues"
   },
-  "homepage": "https://github.com/ShiqiLu77/assignment-6-ShiqiLu77#readme",
+  "homepage": "https://github.com/ShiqiLu77/assignment-9-ShiqiLu77#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "debug": "^4.3.4",
     "dec": "^0.0.1",
-    "sass": "^1.63.6"
+    "esm": "^3.2.25",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.3",
+    "sass": "^1.63.6",
+    "save": "^2.9.0"
   }
 }

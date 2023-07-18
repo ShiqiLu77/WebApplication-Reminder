@@ -1,4 +1,4 @@
-fetch('reminder.json')
+fetch('http://localhost:9000/reminders')
     .then(response => response.json())
     .then(reminders => {
         const container = document.querySelector('.reminder-container');
@@ -8,7 +8,7 @@ fetch('reminder.json')
             const reminderDiv = document.createElement('div');
             reminderDiv.className = 'reminder';
             reminderDiv.style.backgroundColor = getRandomColor();
-            reminderDiv.dataset.time = reminder.time;
+            reminderDiv.dataset.time = reminder.dueDate;
             reminderDiv.addEventListener('click', () => {
                 openEditModal(reminderDiv);
             });
@@ -21,7 +21,7 @@ fetch('reminder.json')
             const titleDiv = document.createElement('div');
             const title = document.createElement('p');
             titleDiv.className = 'reminder-title';
-            title.textContent = reminder.name;
+            title.textContent = reminder.title;
             titleDiv.appendChild(title);
             titleContainer.appendChild(titleDiv); // Append titleDiv to titleContainer instead of reminderDiv
 
@@ -51,7 +51,7 @@ fetch('reminder.json')
             // Append titleContainer to reminderDiv
             reminderDiv.appendChild(titleContainer);
 
-            // create and set  reminder-description div
+            // create and set reminder-description div
             const descriptionDiv = document.createElement('div');
             const description = document.createElement('p');
             descriptionDiv.className = 'reminder-description';
@@ -59,7 +59,7 @@ fetch('reminder.json')
             descriptionDiv.appendChild(description);
             reminderDiv.appendChild(descriptionDiv);            
 
-            // create and set  reminder-date div
+            // create and set reminder-date div
             const dateDiv = document.createElement('div');
             const date = document.createElement('p');
             dateDiv.className = 'reminder-date';
@@ -139,7 +139,7 @@ submitButton.onclick = function (event) {
     const reminderDiv = document.createElement('div');
     reminderDiv.className = 'reminder';
     reminderDiv.style.backgroundColor = getRandomColor();
-    reminderDiv.dataset.time = newReminder.time; // Keep as string
+    reminderDiv.dataset.time = newReminder.dueDate;
     reminderDiv.addEventListener('click', () => {
         openEditModal(reminderDiv); // Open the edit modal
     });
@@ -153,7 +153,7 @@ submitButton.onclick = function (event) {
     const titleDiv = document.createElement('div');
     const title = document.createElement('p');
     titleDiv.className = 'reminder-title';
-    title.textContent = newReminder.name;
+    title.textContent = newReminder.title;
     titleDiv.appendChild(title);
     titleContainer.appendChild(titleDiv);
 
@@ -193,8 +193,7 @@ submitButton.onclick = function (event) {
     const dateDiv = document.createElement('div');
     const date = document.createElement('p');
     dateDiv.className = 'reminder-date';
-    //date.textContent = new Date(newReminder.time).toLocaleString(); // Convert string to local date string for display
-    const timestamp = new Date(newReminder.time);
+    const timestamp = new Date(newReminder.dueDate);
     const timeString = timestamp.toLocaleTimeString([], { hour: 'numeric', minute: 'numeric' });
     date.textContent = timestamp.toLocaleDateString() + ' ' + timeString;
     
