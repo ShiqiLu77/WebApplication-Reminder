@@ -2,7 +2,7 @@
 
 This is a simple JavaScript-based Reminders application that allows users to manage their reminders. The app fetches existing reminders from a JSON file using the fetch API and provides various features to interact with them.
 
-The app is built by Express. The database this project used is MongoDB.
+The app is built by **Express**. The database this project used is **MongoDB**.
 
 The following functions has been implemented
 1. View Reminders
